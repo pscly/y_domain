@@ -108,10 +108,8 @@ class TXCloud():
 
             for i in r_dict:
                 r_dict[i].ym_jl = self.get_one_domain_data(r_dict[i].Name)
-
             self.y.all_dict = r_dict
             return Dict(r_dict)  # 我多写了一遍
-
         except TencentCloudSDKException as err:
             print(err)
 
@@ -139,36 +137,6 @@ class TXCloud():
                     "Status": t_data2.Status,
                     "UpdatedOn": t_data2.UpdatedOn,
                 })
-
-        #     tmp_data1 = Dict({
-        #         "Name": t_data1.Name,
-        #         "Type": t_data1.Type,
-        #         "Value": t_data1.Value,
-        #         "Status": t_data1.Status,
-        #         "UpdatedOn": t_data1.UpdatedOn,
-        #     })
-
-        #     tmp_data1[data.Name] = Dict({
-        #         "ym_jl": data.ym_jl
-        #     })
-
-        # for r_data1 in r_data:
-        #     t_data2 = tmp_data1[r_data1]
-        #     for r_data2 in t_data2['ym_jl']:
-        #         # r_data3 = r_data[r_data1][r_data2]['ym_jl']
-        #         r_data3 = t_data2['ym_jl'][r_data2]
-        #         if r_data3['Name'] in ['@']:
-        #             continue
-        #         if r_data3['Type'] not in ['CNAME', 'AAAA', 'A']:
-        #             continue
-        #         tmp_data1 = Dict({
-        #             "Name": r_data3.Name,
-        #             "Type": r_data3.Type,
-        #             "Value": r_data3.Value,
-        #             "Status": r_data3.Status,
-        #             "UpdatedOn": r_data3.UpdatedOn,
-        #         })
-        #         r_data[r_data1]['ym_jl'] = tmp_data1
         self.y.duan_domain_list = r_data
         return r_data
 
@@ -176,7 +144,7 @@ class TXCloud():
 if __name__ == '__main__':
 
     tx = TXCloud("xxx",
-                 "xxx")
+                "xxx")
     # x = tx.get_domain_list()
     x = tx.get_duan_domain_list()
     print(f'x: {x}')
